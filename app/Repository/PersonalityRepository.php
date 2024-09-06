@@ -15,7 +15,7 @@ class PersonalityRepository implements PersonalityRepositoryInterface
 
     public function findOneById(int $id)
     {
-        return Personality::FindorFail($id);
+        return Personality::findOrFail($id);
     }
 
     public function create(object $payload)
@@ -55,7 +55,7 @@ class PersonalityRepository implements PersonalityRepositoryInterface
 
     public function update(  object $payload, int $id)
     {
-        $Personality = Personality::FindorFail($id);
+        $Personality = Personality::findOrFail($id);
         $Personality->datetime_registered = $payload->datetime_registered;
         $Personality->family_name = $payload->family_name;
         $Personality->middle_name = $payload->middle_name;
@@ -88,7 +88,7 @@ class PersonalityRepository implements PersonalityRepositoryInterface
 
     public function delete(int $id)
     {
-        $Personality = Personality::FindorFail($id);
+        $Personality = Personality::findOrFail($id);
         $Personality->delete();
 
         return response()->json([

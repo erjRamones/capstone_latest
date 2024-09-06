@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
@@ -24,3 +25,4 @@ Route::middleware('auth:sanctum')->prefix('customers')->group(function () {
     Route::put('/{id}', [DBLibraryController::class,'update']);
     Route::delete('/{id}', [DBLibraryController::class, 'destroy']);
 });
+

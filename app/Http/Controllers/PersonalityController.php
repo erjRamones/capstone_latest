@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PersonalityStoreRequest;
+use App\Http\Requests\PersonalityUpdateRequest;
 use App\Interface\Service\PersonalityServiceInterface;
 use Illuminate\Http\Request;
 
 class PersonalityController extends Controller
 {
 
-    private $studentService;
-    public function __construct(PersonalityServiceInterface $studentService) {
+    private $personalityService;
+    public function __construct(PersonalityServiceInterface $personalityService) {
         
-        $this->$studentService= $studentService;
+        $this->$personalityService= $personalityService;
     }
 
     /**
@@ -20,7 +21,7 @@ class PersonalityController extends Controller
      */
     public function index()
     {
-        return $this->studentService->findPersonality();
+        return $this->personalityService->findPersonality();
     }
 
     /**
@@ -28,7 +29,7 @@ class PersonalityController extends Controller
      */
     public function store(PersonalityStoreRequest $request)
     {
-        return $this->studentService->createPersonality($request);
+        return $this->personalityService->createPersonality($request);
         
     }
 
@@ -37,16 +38,16 @@ class PersonalityController extends Controller
      */
     public function show(int $id)
     {
-        return $this->studentService->findPersonalityById($id);
+        return $this->personalityService->findPersonalityById($id);
 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(PersonalityStoreRequest $request, int $id)
+    public function update(PersonalityUpdateRequest $request, int $id)
     {
-        return $this->studentService->updatePersonality($request, $id);
+        return $this->personalityService->updatePersonality($request, $id);
 
     }
 
@@ -55,7 +56,7 @@ class PersonalityController extends Controller
      */
     public function destroy(string $id)
     {
-        return $this->studentService->deletePersonality($id);
+        return $this->personalityService->deletePersonality($id);
 
     }
 }

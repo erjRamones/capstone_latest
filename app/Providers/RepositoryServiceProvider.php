@@ -12,6 +12,7 @@ use App\Interface\Service\CustomerServiceInterface;
 use App\Interface\Service\DBLibraryServiceInterface;
 use App\Interface\Service\EmployeeServiceInterface;
 use App\Interface\Service\PersonalityServiceInterface;
+use App\Interface\Service\UserServiceInterface;
 use App\Repository\CustomerRepository;
 use App\Repository\DBLibraryRepository;
 use App\Repository\EmployeeRepository;
@@ -22,6 +23,7 @@ use App\Service\CustomerService;
 use App\Service\DBLibraryService;
 use App\Service\EmployeeService;
 use App\Service\PersonalityService;
+use App\Service\UserService;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -40,6 +42,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
         //Service
         $this->app->bind(PersonalityServiceInterface::class, PersonalityService::class);
+        $this->app->bind(UserServiceInterface::class, UserService::class);
         $this->app->bind(EmployeeServiceInterface::class, EmployeeService::class);
         $this->app->bind(CustomerServiceInterface::class, CustomerService::class);
         $this->app->bind(DBLibraryServiceInterface::class, DBLibraryService::class);
